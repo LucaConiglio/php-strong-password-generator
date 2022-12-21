@@ -1,26 +1,9 @@
 <?php 
-
-  $number = isset($_GET["number"]);
-
-
-
-  function randomChar() {
-    $chars = "abcdefghilmnopqrstuvwxyz";
-    $charsMaisc = "ABCDEFGHILMNOPQRSTUVWXYZ";
-    $charsymbol = "!£$%&/()=?^-*+ç°é*§-.,;:_#@[]><|";
-    $numbers = "1234567890";
-
-    $totalString = $chars . $charsMaisc . $charsymbol . $numbers;
-
-    return $totalString;
-
-  };
-
-  var_dump(randomChar())
-
+session_start();
+include "functions.php";
 ?>
 
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -39,6 +22,10 @@
             <input type="number" name="number" value="<?php echo $_GET["number"] ?? ''  ?>">
             <button class="btn btn-dark">invia</button>
           </form>
+
+          <?php if( isset($password)) {
+            include "header.php";
+          }   ?>
         </div>
       </div>
     </div>
