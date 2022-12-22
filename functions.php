@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+$log = false;
 
 
 
@@ -6,10 +9,11 @@ if (isset($_GET["number"])) {
 
   $number = $_GET["number"];
 
-  $password = randomChar($number) ;
+  $password = randomChar($number);
 
- 
+  $log = true;
 
+   $_SESSION["password"] = $password ;
 }
 
 
@@ -22,11 +26,9 @@ if (isset($_GET["number"])) {
 
     // inizializziamo una variabile che conterra' la nostra password
     $password = "";
-    
-    
+
     // a partire da 4 dizionari diversi li uniamo in un unico
      $totalString = $chars . $charsMaisc . $charsymbol . $numbers;
-
 
     // parte un ciclo che si ripete tante volte quanto e' il numero rappresentato dalla variabile $number
      for($i = 0 ; $i < $number ; $i++ ) {
@@ -42,7 +44,5 @@ if (isset($_GET["number"])) {
     return $password;
 
   };
-
-
 
 ?>
